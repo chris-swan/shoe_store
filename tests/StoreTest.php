@@ -19,7 +19,7 @@
       protected function tearDown()
       {
           Store::deleteAll();
-        //  Brand::deleteAll();
+          Brand::deleteAll();
       }
 
         function test_getStoreName()
@@ -157,7 +157,7 @@
         //     $test_store = new store($store_name);
         //     $test_store->save();
         //
-        //     $brand_name = "Brand One";
+        //     $brand_name = "ShoeBrand One";
         //     $test_brand = new Brand($brand_name);
         //     $test_brand->save();
         //
