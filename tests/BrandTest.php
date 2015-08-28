@@ -22,7 +22,7 @@
       }
 
 
-        function test_getbrandName()
+        function test_getBrandName()
         {
             //Arrange
             $brand_name = "ShoeBrand One";
@@ -59,6 +59,25 @@
             $result = brand::getAll();
             //Assert
             $this->assertEquals($test_brand, $result[0]);
+        }
+
+        function test_delete()
+        {
+            //Arrange
+            $brand_name = "ShoeBrand One";
+            $test_brand = new brand($brand_name);
+            $test_brand->save();
+
+            $brand_name2 = "ShoeBrand Two";
+            $test_brand2 = new brand($brand_name2);
+            $test_brand2->save();
+
+            //Act
+            $test_brand2->delete();
+            $result = Brand::getall();
+
+            //Assert
+            $this->assertEquals([$test_brand], $result);
         }
 
         function test_deleteAll()
