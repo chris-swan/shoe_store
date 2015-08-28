@@ -80,11 +80,11 @@
           $this->store_name = $new_store_name;
       }
 
-      //get and add brands
-      // function addBrand($brand)
-      // {
-      //     $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) Values ({$this->getId()}, {$book->getId()});");
-      // }
+    //  get and add brands
+      function addBrand($brand)
+      {
+          $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) Values ({$this->getId()}, {$brand->getId()});");
+      }
 
     }
 

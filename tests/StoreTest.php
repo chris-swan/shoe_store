@@ -7,7 +7,7 @@
     */
 
     require_once "src/Store.php";
-  //  require_once "src/brand.php";
+    require_once "src/Brand.php";
 
     $server = 'mysql:host=localhost;dbname=shoes_test';
     $username = 'root';
@@ -157,7 +157,7 @@
         //     $test_store = new store($store_name);
         //     $test_store->save();
         //
-        //     $title = "Brand One";
+        //     $brand_name = "Brand One";
         //     $test_brand = new Brand($brand_name);
         //     $test_brand->save();
         //

@@ -32,6 +32,19 @@
             //Assert
             $this->assertEquals($brand_name, $result);
         }
+
+        function test_getId()
+        {
+            //Arrange
+            $brand_name = "ShoeBrand One";
+            $id = 1;
+            $test_brand = new brand($brand_name, $id);
+            //Act
+            $result = $test_brand->getId();
+            //Assert
+            $this->assertEquals($id, $result);
+        }
+
     }
 
 
