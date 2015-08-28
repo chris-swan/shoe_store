@@ -74,7 +74,7 @@
           return $found_store;
       }
 
-      function updatestoreName($new_store_name)
+      function updateStoreName($new_store_name)
       {
           $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_store_name}' WHERE id = {$this->getId()};");
           $this->store_name = $new_store_name;
@@ -86,7 +86,7 @@
           $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) Values ({$this->getId()}, {$brand->getId()});");
       }
 
-      function getbrands()
+      function getBrands()
       {
           $query = $GLOBALS['DB']->query("SELECT brands.* FROM
           stores JOIN stores_brands ON (stores.id = stores_brands.store_id)
@@ -98,17 +98,12 @@
           foreach($returned_brands as $brand){
               $title = $brand['title'];
               $id = $brand['id'];
-              $new_brand = new Brand($title, $id);
+              $new_brand = new Brand($brand_name, $id);
               array_push($brands, $new_brand);
           }
           return $brands;
       }
 
     }
-
-//code review goals for Store: Create,
-//Read(all & singular), Update, DeleteAll, DeleteSingular
-//
-
 
 ?>

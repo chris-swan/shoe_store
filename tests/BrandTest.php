@@ -152,7 +152,26 @@
             //Assert
             $this->assertEquals(brand::find($id), $result);
         }
-    }
 
+        // function test_addStore()
+        // {
+        //     //Arrange
+        //     $store_name = "TestStore One";
+        //     $test_store = new Store($store_name);
+        //     $test_store->save();
+        //
+        //     $brand_name = "ShoeBrand One";
+        //     $test_brand = new brand($brand_name);
+        //     $test_brand->save();
+        //
+        //     //Act
+        //     $result = [$test_store];
+        //     $test_brand->addstore($test_store);
+        //     //Assert
+        //
+        //     $this->assertEquals($test_brand->getstores(), $result);
+        // }
+
+    }
 
 ?>
