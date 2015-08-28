@@ -99,6 +99,24 @@
             $this->assertEquals($test_store, $result[0]);
         }
 
+        function test_deleteAll()
+        {
+            //Arrange
+            $store_name = "ShoeStore One";
+            $test_store = new store($store_name);
+            $test_store->save();
+            $store_name2 = "ShoeStore Two";
+            $test_store2 = new store($store_name2);
+            $test_store2->save();
+
+            //Act
+            store::deleteAll();
+            $result = store::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
 
     }
 ?>
