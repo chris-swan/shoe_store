@@ -1,10 +1,3 @@
-CREATE DATABASE shoes;
-USE shoes;
-CREATE TABLE stores (name VARCHAR(255) id SERIAL);
-CREATE TABLE brands (name VARCHAR(255) id SERIAL);
-- in php MyAdmin - copy DB to shoes_test -  
- - in phpMyAdmin - change "name" to store_name/brand_name -
-
 
  Shoe Store
 
@@ -13,6 +6,19 @@ CREATE TABLE brands (name VARCHAR(255) id SERIAL);
  Description:
 
 week 4 database assessment. An app to enter in stores and brands, to see which stores carry which brands, and which brands are located at which stores.
+
+      Database commands used in terminal:
+
+      CREATE DATABASE shoes;
+      USE shoes;
+      CREATE TABLE stores (name VARCHAR(255) id SERIAL);
+      CREATE TABLE brands (name VARCHAR(255) id SERIAL);
+      - in php MyAdmin - copy DB to shoes_test -  
+       - in phpMyAdmin - change "name" to store_name/brand_name -
+       USE shoes:
+       CREATE TABLE stores_brands(id serial PRIMARY KEY, store_id int, brand_id int);
+       DROP DATABASE shoes_test;
+       -- in phpMyAdmin - copy database to shoes_test
 
 
  Setup
@@ -28,7 +34,7 @@ week 4 database assessment. An app to enter in stores and brands, to see which s
  Start an apache server (another new tab in terminal) with apachectl start
 
  Open your browser to localhost:8888/phpmyadmin
- 
+
  Start another terminal tab. Open a php server php -S localhost:8000. This is so you can view your twig sites.
 
  got to http://localhost:8000 to view the sites.

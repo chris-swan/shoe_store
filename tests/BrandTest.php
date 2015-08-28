@@ -150,7 +150,7 @@
             $result = new Brand($brand_name2, $id);
 
             //Assert
-            $this->assertEquals(brand::find($id), $result);
+            $this->assertEquals(Brand::find($id), $result);
         }
 
         // function test_addStore()

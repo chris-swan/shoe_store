@@ -150,24 +150,54 @@
             $this->assertEquals(store::find($id), $result);
         }
 
+        //Test ability to add a brand to a store:
         function test_addBrand()
         {
             //Arrange
             $store_name = "ShoeStore One";
-            $test_store = new store($store_name);
+            $id = 1;
+            $test_store = new store($store_name, $id);
             $test_store->save();
 
             $brand_name = "ShoeBrand One";
-            $test_brand = new Brand($brand_name);
+            $id2 = 2;
+            $test_brand = new Brand($brand_name, $id2);
             $test_brand->save();
 
             //Act
-            $result = [$test_brand];
             $test_store->addBrand($test_brand);
 
             //Assert
-            $this->assertEquals($test_store->getBrands(), $result);
+            $this->assertEquals($test_store->getBrands(), [$test_brand]);
         }
+
+        //test get brands on a specific instance of a store:
+        function GetBrands()
+        {
+          //Arrange
+          $store_name = "ShoeStore One";
+          $id = 1;
+          $test_store = new store($store_name, $id);
+          $test_store->save();
+
+          $brand_name = "ShoeBrand One";
+          $id2 = 2;
+          $test_brand = new Brand($brand_name, $id2);
+          $test_brand->save();
+
+          $brand_name2 = "ShoeBrand Two";
+          $id3 = 2;
+          $test_brand2 = new Brand($brand_name2, $id3);
+          $test_brand2->save();
+
+          //Act
+          $test_store->addBrand($test_brand);
+          $test_store->addBrand($test_brand2);
+
+          //Assert
+          $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+        }
+
 
 
     }
