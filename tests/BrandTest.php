@@ -97,6 +97,24 @@
             //Assert
             $this->assertEquals($test_brand, $result[0]);
         }
+
+        function test_find()
+        {
+            //Arrange
+            $brand_name = "ShoeBrand One";
+            $test_brand = new brand($brand_name);
+            $test_brand->save();
+
+            $brand_name2 = "ShoeBrand Two";
+            $test_brand2 = new brand($brand_name2);
+            $test_brand2->save();
+
+            //Act
+            $result = Brand::find($test_brand->getId());
+
+            //Assert
+            $this->assertEquals($test_brand, $result);
+        }
     }
 
 
