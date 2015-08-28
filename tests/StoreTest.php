@@ -133,6 +133,23 @@
             $this->assertEquals($test_store, $result);
         }
 
+        function test_updatestoreName()
+        {
+            $store_name = "ShoeStore One";
+            $test_store = new store($store_name);
+            $test_store->save();
+
+            $store_name2 = "ShoeStore Two";
+            $test_store->updatestoreName($store_name2);
+
+            //Act
+            $id = $test_store->getId();
+            $result = new store($store_name2, $id);
+
+            //Assert
+            $this->assertEquals(store::find($id), $result);
+        }
+
 
     }
 ?>
