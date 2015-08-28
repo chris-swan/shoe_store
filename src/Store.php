@@ -59,9 +59,22 @@
           $GLOBALS['DB']->exec("DELETE FROM stores;");
       }
 
+    //Find store function:
+
+      static function find($search_id)
+      {
+          $found_store = NULL;
+          $stores = store::getAll();
+          foreach ($stores as $store) {
+              $store_id = $store->getId();
+              if ($store_id == $search_id) {
+                  $found_store = $store;
+              }
+          }
+          return $found_store;
 
       }
-
+    }
 
 //code review goals for Store: Create,
 //Read(all & singular), Update, DeleteAll, DeleteSingular
