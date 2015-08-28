@@ -86,6 +86,24 @@
           $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) Values ({$this->getId()}, {$brand->getId()});");
       }
 
+      function getbrands()
+      {
+          $query = $GLOBALS['DB']->query("SELECT brands.* FROM
+          stores JOIN stores_brands ON (stores.id = stores_brands.store_id)
+                 JOIN brands ON (stores_brands.brand_id = brands.id)
+          WHERE stores.id = {$this->getID()};");
+          $returned_brands = $query->fetchAll(PDO::FETCH_ASSOC);
+
+          $brands = array();
+          foreach($returned_brands as $brand){
+              $title = $brand['title'];
+              $id = $brand['id'];
+              $new_brand = new Brand($title, $id);
+              array_push($brands, $new_brand);
+          }
+          return $brands;
+      }
+
     }
 
 //code review goals for Store: Create,
