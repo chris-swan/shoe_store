@@ -35,7 +35,19 @@
             $this->assertEquals($store_name, $result);
         }
 
+        function test_getID()
+        {
+            //Arrange
+            $store_name = "ShoreStore One";
+            $id = 1;
+            $test_store = new Store($store_name, $id);
 
+            //Act
+            $result = $test_store->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
 
 
     }

@@ -28,7 +28,10 @@
           return $this->id;
       }
 
-
+      function delete()
+      {
+          $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getID()};");
+      }
 
     }
 
