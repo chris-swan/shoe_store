@@ -14,7 +14,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class ShoeTest extends PHPUnit_Framework_TestCase
+    class StoreTest extends PHPUnit_Framework_TestCase
     {
     //   protected function tearDown()
     //   {
@@ -26,7 +26,7 @@
         {
             //Arrange
             $store_name = "ShoeStore One";
-            $test_store = new Shoe($store_name);
+            $test_store = new Store($store_name);
 
             //Act
             $result = $test_store ->getStoreName();
@@ -34,7 +34,7 @@
             //Assert
             $this->assertEquals($store_name, $result);
         }
-    
+
 
 
 
