@@ -7,7 +7,7 @@
     */
 
     require_once "src/Store.php";
-    //require_once "src/Book.php";
+  //  require_once "src/brand.php";
 
     $server = 'mysql:host=localhost;dbname=shoes_test';
     $username = 'root';
@@ -149,6 +149,25 @@
             //Assert
             $this->assertEquals(store::find($id), $result);
         }
+
+        // function test_addBrand()
+        // {
+        //     //Arrange
+        //     $store_name = "ShoeStore One";
+        //     $test_store = new store($store_name);
+        //     $test_store->save();
+        //
+        //     $title = "Brand One";
+        //     $test_brand = new Brand($brand_name);
+        //     $test_brand->save();
+        //
+        //     //Act
+        //     $result = [$test_brand];
+        //     $test_store->addBrand($test_brand);
+        //
+        //     //Assert
+        //     $this->assertEquals($test_store->getBrands(), $result);
+        // }
 
 
     }
