@@ -85,26 +85,6 @@
         }
 
         //Working with join statement
-        // function getStores()
-        // {
-        //     $query = $GLOBALS['DB']->query("SELECT store_id FROM brands WHERE brand_id = {$this->getId()};");
-        //     $store_ids = $query->fetchAll(PDO::FETCH_ASSOC);
-        //
-        //     $stores = array();
-        //     foreach($store_ids as $id) {
-        //         $store_id = $id['store_id'];
-        //         $result = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$store_id};");
-        //         $returned_store = $result->fetchAll(PDO::FETCH_ASSOC);
-        //
-        //         $store_name = $returned_store[0]['store_name'];
-        //         $id = $returned_store[0]['id'];
-        //         $new_store = new Store($store_name, $id);
-        //         array_push($stores, $new_store);
-        //     }
-        //
-        //     return $stores;
-        // }
-
         function getStores()
         {
             $query = $GLOBALS['DB']->query("SELECT stores.* FROM brands
@@ -124,5 +104,6 @@
            return $stores;
        }
 
-    }
+     }
+
 ?>

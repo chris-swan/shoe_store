@@ -153,25 +153,59 @@
             $this->assertEquals(Brand::find($id), $result);
         }
 
-        // function test_addStore()
+        //  //Test adding one store:
+        function test_addStore()
+        {
+            //Arrange
+            $store_name = "ShoeStore One";
+            $id = 1;
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $brand_name = "ShoeBrand One";
+            $test_brand = new brand($brand_name);
+            $test_brand->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+
+            //Assert
+            $this->assertEquals($test_brand->getStores(), [$test_store]);
+        }
+
+        //Test add multiple stores:
+        //At this point, while testing testGetStores, I am getting the error:
+
+        // .........PHP Fatal error:  Call to undefined function assertEquals() in
+        // /Users/Guest/Desktop/shoe_store/tests/BrandTest.php on line 200
+        //I've been stuck on it a little while and haven't found the solution quite yet.
+        //The other 18 tests are passing.
+
+        // function testGetStores()
         // {
         //     //Arrange
-        //     $store_name = "TestStore One";
-        //     $test_store = new Store($store_name);
+        //     $store_name = "ShoeStore One";
+        //     $id = 1;
+        //     $test_store = new Store($store_name, $id);
         //     $test_store->save();
         //
+        //     $store_name2 = "ShoeStore Two";
+        //     $id2 = 2;
+        //     $test_store2 = new Store($store_name2, $id2);
+        //     $test_store2->save();
+        //
         //     $brand_name = "ShoeBrand One";
-        //     $test_brand = new brand($brand_name);
+        //     $id3 = 3;
+        //     $test_brand = new Brand($brand_name, $id3);
         //     $test_brand->save();
         //
         //     //Act
-        //     $result = [$test_store];
-        //     $test_brand->addstore($test_store);
-        //     //Assert
+        //     $test_brand->addStore($test_store);
+        //     $test_brand->addStore($test_store2);
         //
-        //     $this->assertEquals($test_brand->getstores(), $result);
+        //     //Assert
+        //     $this-assertEquals($test_brand->getStores(), [$test_store, $test_store2]);
         // }
-
     }
 
 ?>
