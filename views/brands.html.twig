@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Library</title>
+</head>
+<body>
+    <h1>brands</h1>
+
+    {% if brands is not empty %}
+        <p>Here are all the brands:</p>
+        <ul>
+            {% for brand in brands %}
+                <li><a href="/brand/{{ brand.getId }}">{{ brand.getTitle }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no brands</p>
+    {% endif %}
+
+    <h3>Add a brand</h3>
+    <form action='/brands' method='post'>
+        <label for='title'>brand name</label>
+        <input id='title' name='title' type='text'>
+
+        <button type='submit'>Add brand</button>
+    </form>
+
+    <p><a href='/'>Home</a></p>
+</body>
+</html>

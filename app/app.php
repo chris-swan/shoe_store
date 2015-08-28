@@ -49,7 +49,7 @@
     });
 
     $app->post("/stores", function() use ($app) {
-        $new_store = new Store($_POST['name']);
+        $new_store = new Store($_POST['store_name']);
         $new_store->save();
         return $app['twig']->render('stores.html.twig', array('stores'=>store::getAll()));
     });
