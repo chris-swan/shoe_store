@@ -92,8 +92,6 @@
                 JOIN stores ON (stores.id = brands_stores.store_id)
                 WHERE brands.id = {$this->getId()};");
 
-            //$returned_stores = $query->fetchAll(PDO::FETCH_ASSOC);
-
             $stores = array();
             foreach($returned_stores as $store) {
                 $store_name = $store['store_name'];

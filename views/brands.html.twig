@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Brands stores</title>
+    <title>Brands</title>
 </head>
 <body>
     <h1>brands</h1>
@@ -9,7 +9,7 @@
         <p>Here are all the brands:</p>
         <ul>
             {% for brand in brands %}
-                <li><a href="/brand/{{ brand.getId }}">{{ brand.getTitle }}</a></li>
+                <li><a href="/brand/{{ brand.getId }}">{{ brand.getbrandName }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
@@ -18,8 +18,8 @@
 
     <h3>Add a brand</h3>
     <form action='/brands' method='post'>
-        <label for='title'>brand name</label>
-        <input id='title' name='title' type='text'>
+        <label for='brand_name'>brand name</label>
+        <input id='brand_name' name='brand_name' type='text'>
 
         <button type='submit'>Add brand</button>
     </form>
