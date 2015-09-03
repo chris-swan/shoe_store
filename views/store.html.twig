@@ -5,7 +5,7 @@
 
 <body>
     <h1>{{ store.getStoreName }}</h1>
-    <h3>brands by store</h3>
+    <h3>The brands carried by this store are:</h3>
     {% if brands is not empty %}
         <p>Here are the brands for this store:</p>
         <ul>
@@ -29,28 +29,30 @@
             <option value="{{ brand.getId }}"> {{ brand.getBrandName }} </option>
           {% endfor %}
         </select>
-        <button type='submit' class='btn btn-success'>Add</button>
+        <button type="submit" class="btn btn-success">Add</button>
     </form>
 <!-- Link to create new brands: -->
     <li><a href="/brands">OR Create NEW brand here! </a></li>
     <br>
 
 <!-- rename this store -->
-    <h4>Update the store name below:</h4>
-    <form action="/stores/{{ store.getId }}" method="post">
+    <h1>Edit {{ store.getStoreName }}</h1>
+
+        <form action="/stores/{{ store.getId }}" method="post">
             <input name="_method" type="hidden" value="patch">
 
-            <label for="new_store_name">Enter new Name:</label>
-            <input name="new_store_name" type="text" value="{{ store.getStoreName }}">
+            <label for="store_name">Enter new Name:</label>
+            <input name="store_name" type="text" value="{{ store.getStoreName }}">
 
-            <button type="submit" class='btn btn-warning'>Submit</button> 
+            <button type="submit">Submit</button>
         </form>
 
-<!-- Delete this store: -->
-    <form action='/store/{{ store.getId }}/edit' method='post'>
+<!-- Delete this store -->
+        <form action='/store/{{ store.getId }}/edit' method='post'>
         <input name='_method' type='hidden' value='delete'>
         <button type='submit' class='btn btn-danger'>Delete Store</button>
     </form>
+
 
     <p><a href='/'>Home</a></p>
 </body>

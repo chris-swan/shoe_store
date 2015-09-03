@@ -74,12 +74,14 @@
         $store = Store::find($id);
         $store->delete();return $app['twig']->render('index.html.twig', array ('stores' => Store::getAll(), 'brands' => Brand::getAll()));
     });
+
     //Update a store
-    $app->get("/store/{id}/edit", function($id) use($app){
+    $app->get("/stores/{id}/edit", function($id) use($app){
         $store = Store::find($id);
         return $app['twig']->render('store.html.twig', array('store' => $store));
         });
 
+    //Update a store:
     $app->patch("/stores/{id}", function($id) use($app){
         $store_name = $_POST['store_name'];
         $store = Store::find($id);
@@ -95,7 +97,7 @@
 
 
     //Path to add a brand:
-    $app->post("/add_brand", function() use ($app) {
+    $app->post('/add_brand', function() use ($app) {
         $brand = Brand::find($_POST['brand_id']);
         $store = Store::find($_POST['store_id']);
         $store->addbrand($brand);
