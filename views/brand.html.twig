@@ -3,32 +3,18 @@
     <title>Shoe Store</title>
 
 <body>
-    <h1>{{ brand.getbrand_name }}</h1>
+    <h1>{{ brand.getBrandName }}</h1>
     <h3>store(s)</h3>
     {% if stores is not empty %}
         <p>Here are the stores for this brand:</p>
         <ul>
             {% for store in stores %}
-                    <li>{{ store.getstoreName }}</li>
+                    <li>{{ store.getStoreName }}</li>
             {% endfor %}
         </ul>
     {% else %}
         <p>
             There are currently no stores for this brand.
-        </p>
-    {% endif %}
-
-    <h3>Copies</h3>
-    {% if copies is not empty %}
-        <p>Here are the copies for this brand:</p>
-        <ul>
-            {% for copy in copies %}
-                    <li>brand Copy ID:{{ copy }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>
-            There are currently no copies of this brand.
         </p>
     {% endif %}
 
@@ -43,11 +29,6 @@
           {% endfor %}
         </select>
         <button type='submit'>Add store</button>
-    </form>
-
-    <form action='/add_copy' method='post'>
-        <input  id="brand_id" name="brand_id" type="hidden" value="{{ brand.getId }}">
-        <button type='submit' >Add copy</button>
     </form>
 
     <p><a href='/'>Home</a></p>

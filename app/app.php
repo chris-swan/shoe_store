@@ -33,7 +33,7 @@
     $app->get("/brand/{id}", function($id) use ($app) {
         $brand = Brand::find($id);
         $brand_id = $brand->getId();
-        return $app['twig']->render('brand.html.twig', array('copies'=>$brand->getCopies(), 'brand' => $brand, 'stores' => $brand->getstores(), 'all_stores' => store::getAll()));
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getstores(), 'all_stores' => store::getAll()));
     });
 
     $app->get("/store/{id}", function($id) use ($app) {
