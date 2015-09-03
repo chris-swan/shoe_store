@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     <title>Store</title>
 </head>
 <body>
@@ -21,11 +22,11 @@
         <label for='store_name'>Store name</label>
         <input id='store_name' name='store_name' type='text'>
 
-        <button type='submit'>Add store</button>
+        <button type='submit' class='btn btn-success'>Add store</button>
     </form>
 
     <form action="/delete_stores" method="post">
-        <button type="submit">Delete ALL stores</button>
+        <button type="submit" class='btn btn-danger'>Delete ALL stores</button>
     </form>
 
     <p><a href='/'>Home</a></p>

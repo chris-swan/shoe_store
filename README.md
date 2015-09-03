@@ -25,6 +25,18 @@ week 4 database assessment. An app to enter in stores and brands, to see which s
 
  Clone repository from GitHub.
 
+ Once in your local system - you will need to adjust the server to your local settings(Currently set to localhost:3306 to work with my system). The files to be adjusted to local settings are:
+
+ BrandTest.php
+ StoreTest.php
+ App.php
+
+ Create database using zip files
+
+ Clone database shoes to shoes_test in order to run tests.
+
+ Other points may be referrenced in code, but I believe those 3 are the ones that need to be set in order to run.
+
  Run $ composer install in top level of project folder.
 
  in a new terminal tab. enter mysql.server start.
@@ -35,7 +47,7 @@ week 4 database assessment. An app to enter in stores and brands, to see which s
 
  Open your browser to localhost:8888/phpmyadmin
 
- Start another terminal tab. Open a php server php -S localhost:8000. This is so you can view your twig sites.
+ Start another terminal tab, change this terminal to the 'web' folder of the project file, once in this directory, open a php server php -S localhost:8000. This is so you can view your twig sites.
 
  got to http://localhost:8000 to view the sites.
 

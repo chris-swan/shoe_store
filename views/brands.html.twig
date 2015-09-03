@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     <title>Brands</title>
 </head>
 <body>
@@ -21,11 +22,11 @@
         <label for='brand_name'>brand name</label>
         <input id='brand_name' name='brand_name' type='text'>
 
-        <button type='submit'>Add brand</button>
+        <button type='submit' class='btn btn-success'>Add brand</button>
     </form>
 
     <form action="/delete_brands" method="post">
-        <button type="submit">Delete ALL brands</button>
+        <button type="submit" class='btn btn-danger'>Delete ALL brands</button>
     </form>
 
     <p><a href='/'>Home</a></p>

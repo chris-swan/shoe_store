@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     <title>Store</title>
 
 <body>
@@ -22,16 +23,34 @@
 
     <form action='/add_brand' method='post'>
         <input id="store_id" name="store_id" type="hidden" value="{{ store.getId }}">
-        <label for="brand_id">Select an existing brand:</label>
+        <label for="brand_id">Select an EXISTING brand:</label>
         <select id='brand_id' name='brand_id' type='text'>
           {% for brand in all_brands %}
             <option value="{{ brand.getId }}"> {{ brand.getBrandName }} </option>
           {% endfor %}
         </select>
-        <button type='submit'>Add EXISTING brand</button>
+        <button type='submit' class='btn btn-success'>Add</button>
     </form>
-
+<!-- Link to create new brands: -->
     <li><a href="/brands">OR Create NEW brand here! </a></li>
+    <br>
+
+<!-- rename this store -->
+    <h4>Update the store name below:</h4>
+    <form action="/stores/{{ store.getId }}" method="post">
+            <input name="_method" type="hidden" value="patch">
+
+            <label for="new_store_name">Enter new Name:</label>
+            <input name="new_store_name" type="text" value="{{ store.getStoreName }}">
+
+            <button type="submit" class='btn btn-warning'>Submit</button> 
+        </form>
+
+<!-- Delete this store: -->
+    <form action='/store/{{ store.getId }}/edit' method='post'>
+        <input name='_method' type='hidden' value='delete'>
+        <button type='submit' class='btn btn-danger'>Delete Store</button>
+    </form>
 
     <p><a href='/'>Home</a></p>
 </body>

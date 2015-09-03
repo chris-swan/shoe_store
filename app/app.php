@@ -69,6 +69,24 @@
         return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => $brand->getstores(), 'all_stores' => store::getAll()));
     });
 
+    //Delete a single store:
+      $app->delete('/store/{id}/edit', function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();return $app['twig']->render('index.html.twig', array ('stores' => Store::getAll(), 'brands' => Brand::getAll()));
+    });
+    //Update a store
+    $app->get("/store/{id}/edit", function($id) use($app){
+        $store = Store::find($id);
+        return $app['twig']->render('store.html.twig', array('store' => $store));
+        });
+
+    $app->patch("/stores/{id}", function($id) use($app){
+        $store_name = $_POST['store_name'];
+        $store = Store::find($id);
+        $store->updateStoreName($store_name);
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrands(), 'all_brands' => Brand::getAll()));
+    });
+
     //Delete all stores, renders index:
     $app->post('/delete_stores', function () use ($app) {
         Store::deleteAll(); 
