@@ -1,9 +1,9 @@
 <?php
     Class Store{
 
-      private $id;
       private $store_name;
-
+      private $id;
+      
       //Constructors
       function __construct($store_name, $id = null)
       {
@@ -88,11 +88,10 @@
 
       function getBrands()
       {
-          $query = $GLOBALS['DB']->query("SELECT brands.* FROM
-          stores JOIN brands_stores ON (stores.id = brands_stores.store_id)
-                 JOIN brands ON (brands_stores.brand_id = brands.id)
+          $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores 
+                JOIN brands_stores ON (stores.id = brands_stores.store_id)
+                JOIN brands ON (brands.id = brands_stores.brand_id)
           WHERE stores.id = {$this->getID()};");
-          $returned_brands = $query->fetchAll(PDO::FETCH_ASSOC);
 
           $brands = array();
           foreach($returned_brands as $brand){

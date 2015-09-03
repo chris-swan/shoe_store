@@ -171,8 +171,8 @@
             $this->assertEquals($test_store->getBrands(), [$test_brand]);
         }
 
-        //test get brands on a specific instance of a store:
-        function GetBrands()
+        //test get brands on a specific instance of a store:(BRoken)
+        function test_getBrands()
         {
           //Arrange
           $store_name = "ShoeStore One";
@@ -193,10 +193,14 @@
           //Act
           $test_store->addBrand($test_brand);
           $test_store->addBrand($test_brand2);
+          $result = $test_store->getBrands();
 
           //Assert
-          $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+          $this->assertEquals([$test_brand, $test_brand2], $result);
         }
+
+
+
 
 
 

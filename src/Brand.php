@@ -2,8 +2,8 @@
 
     Class Brand
     {
-        private $id;
         private $brand_name;
+        private $id;
 
         //Construct function:
         function __construct($brand_name, $id = NULL)
@@ -81,20 +81,20 @@
         //Add and get brand_name(s)
         function addStore($store)
         {
-            $GLOBALS['DB']->exec("INSERT INTO brands_stores(brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
         }
 
         //Working with join statement
         function getStores()
         {
-            $query = $GLOBALS['DB']->query("SELECT stores.* FROM brands
+            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
                 JOIN brands_stores ON (brands.id = brands_stores.brand_id)
-                JOIN stores ON (brands_stores.store_id = stores.id)
+                JOIN stores ON (stores.id = brands_stores.store_id)
                 WHERE brands.id = {$this->getId()};");
 
             $returned_stores = $query->fetchAll(PDO::FETCH_ASSOC);
 
-            $stores = array();
+            $stores = [];
             foreach($returned_stores as $store) {
                 $store_name = $store['store_name'];
                 $id = $store['id'];
