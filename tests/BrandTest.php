@@ -181,31 +181,31 @@
         //I've been stuck on it a little while and haven't found the solution quite yet.
         //The other 18 tests are passing.
 
-        // function testGetStores()
-        // {
-        //     //Arrange
-        //     $store_name = "ShoeStore One";
-        //     $id = 1;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $store_name2 = "ShoeStore Two";
-        //     $id2 = 2;
-        //     $test_store2 = new Store($store_name2, $id2);
-        //     $test_store2->save();
-        //
-        //     $brand_name = "ShoeBrand One";
-        //     $id3 = 3;
-        //     $test_brand = new Brand($brand_name, $id3);
-        //     $test_brand->save();
-        //
-        //     //Act
-        //     $test_brand->addStore($test_store);
-        //     $test_brand->addStore($test_store2);
-        //
-        //     //Assert
-        //     $this-assertEquals($test_brand->getStores(), [$test_store, $test_store2]);
-        // }
+        function testGetStores()
+        {
+            //Arrange
+            $store_name = "ShoeStore One";
+            $id = 1;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+        
+            $store_name2 = "ShoeStore Two";
+            $id2 = 2;
+            $test_store2 = new Store($store_name2, $id2);
+            $test_store2->save();
+        
+            $brand_name = "ShoeBrand One";
+            $id3 = 3;
+            $test_brand = new Brand($brand_name, $id3);
+            $test_brand->save();
+        
+            //Act
+            $test_brand->addStore($test_store);
+            $test_brand->addStore($test_store2);
+        
+            //Assert
+            $this-assertEquals($test_brand->getStores(), [$test_store, $test_store2]);
+        }
     }
 
 ?>
