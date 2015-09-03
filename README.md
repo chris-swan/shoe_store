@@ -16,7 +16,7 @@ week 4 database assessment. An app to enter in stores and brands, to see which s
       - in php MyAdmin - copy DB to shoes_test -  
        - in phpMyAdmin - change "name" to store_name/brand_name -
        USE shoes:
-       CREATE TABLE stores_brands(id serial PRIMARY KEY, store_id int, brand_id int);
+       CREATE TABLE brands_stores(id serial PRIMARY KEY, brand_id int, store_id int);
        DROP DATABASE shoes_test;
        -- in phpMyAdmin - copy database to shoes_test
 

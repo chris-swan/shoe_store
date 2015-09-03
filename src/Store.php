@@ -83,14 +83,14 @@
       //   Add & Get brand functions:
       function addBrand($brand)
       {
-          $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$brand->getId()});");
+          $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$brand->getId()}, {$this->getId()});");
       }
 
       function getBrands()
       {
           $query = $GLOBALS['DB']->query("SELECT brands.* FROM
-          stores JOIN stores_brands ON (stores.id = stores_brands.store_id)
-                 JOIN brands ON (stores_brands.brand_id = brands.id)
+          stores JOIN brands_stores ON (stores.id = brands_stores.store_id)
+                 JOIN brands ON (brands_stores.brand_id = brands.id)
           WHERE stores.id = {$this->getID()};");
           $returned_brands = $query->fetchAll(PDO::FETCH_ASSOC);
 
